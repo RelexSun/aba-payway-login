@@ -1,24 +1,20 @@
-import LoginForm from "@/components/LoginForm";
-import { Input } from "@/components/ui/input";
-import Image from "next/image";
-import banner from "../../public/banner-img.png";
-import patternL from "../../public/pattern-left.svg";
-import patternR from "../../public/pattern-right.svg";
-import logo from "../../public/pw-new-logo.svg";
-import smlogo from "../../public/aba-logo.svg";
-import { FaLinkedin, FaYoutubeSquare, FaGithub } from "react-icons/fa";
-import { CiGlobe } from "react-icons/ci";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { CiGlobe } from "react-icons/ci";
+import LoginForm from "./login-form";
+import { FaGithub, FaLinkedin, FaYoutubeSquare } from "react-icons/fa";
 
-export default function Home() {
+export const LoginScreen: React.FC = () => {
   return (
-    <main className="login-bg h-screen flex items-center justify-center">
+    <div className="login-bg h-screen flex items-center justify-center">
       <div className="h-[468px] w-[880px] flex items-center justify-center z-10 relative">
         <div className="flex rounded-xl shadow-lg bg-white overflow-hidden h-full">
           <div className="hidden md:block">
             <Image
-              src={banner}
+              src={"/banner-img.png"}
               alt="banner"
+              width={200}
+              height={200}
               className="object-cover max-w-full h-auto"
             />
           </div>
@@ -41,26 +37,37 @@ export default function Home() {
         </div>
       </div>
       <Image
-        src={logo}
+        src={"/pw-new-logo.svg"}
         alt="logo"
+        width={200}
+        height={200}
         className="absolute top-[50px] left-[100px]"
       />
       <Image
-        src={patternL}
+        src={"/pattern-left.svg"}
+        width={200}
+        height={200}
         alt="pattern left"
         className="absolute bottom-0 left-0 mix-blend-overlay"
       />
       <Image
-        src={patternR}
+        src={"/pattern-right.svg"}
         alt="pattern right"
+        width={200}
+        height={200}
         className="absolute bottom-0 right-0 mix-blend-overlay"
       />
       <div className="absolute bottom-[45px] left-[100px]">
         <div className="flex gap-2">
-          <Image src={smlogo} alt="small logo" />
+          <Image
+            src={"/aba-logo.svg"}
+            alt="small logo"
+            width={200}
+            height={200}
+          />
           <div className="text-[11px]">
             <div>
-              <span className="font-semibold">Advanced Bank of Asia Ltd.</span>
+              <span className="font-semibold">Advanced Bank of Asia Ltd.</span>{" "}
               148, Preah Sihanouk Blvd, Phnom Penh, 12321, Cambodia
             </div>
             <a
@@ -87,6 +94,6 @@ export default function Home() {
           </a>
         </div>
       </div>
-    </main>
+    </div>
   );
-}
+};
