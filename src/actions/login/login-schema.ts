@@ -2,10 +2,12 @@ import { z } from "zod";
 
 export const LoginSchema = z.object({
   email: z
-    .string()
-    .min(1, { message: "Please provide an email" })
+    .string({ required_error: "Please provide an email" })
     .email({ message: "Please provide a valid email" }),
-  password: z.string().min(6).max(64),
+  password: z
+    .string({ required_error: "Please provide a password" })
+    .min(6)
+    .max(64),
 });
 
 export const LoginResponseSchema = z.object({
@@ -13,12 +15,5 @@ export const LoginResponseSchema = z.object({
   refreshToken: z.string(),
 });
 
-export const ErrorResponseSchema = z.object({
-  message: z.string(),
-  error: z.string(),
-  statusCode: z.string(),
-});
-
 export type LoginInput = z.infer<typeof LoginSchema>;
 export type LoginResponse = z.infer<typeof LoginResponseSchema>;
-export type ErrorResponse = z.infer<typeof ErrorResponseSchema>;

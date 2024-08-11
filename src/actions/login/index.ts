@@ -1,9 +1,10 @@
 "use server";
 
 import { API } from "@/common/constants/api";
-import { ErrorResponse, LoginInput, LoginResponse } from "./login-schema";
+import { LoginInput, LoginResponse } from "./login-schema";
 import { parseJSON } from "@/lib/format-response-data";
-import { getCookie } from "@/lib/get-cookie";
+import { setCookie } from "@/lib/set-cookie";
+import { ErrorResponse } from "@/common/schema";
 
 const LOGIN = API.URL_ENDPOINT + "/auth/login";
 
@@ -27,8 +28,8 @@ export const login = async (
       };
     }
 
-    getCookie(response, "accessToken");
-    getCookie(response, "refreshToken");
+    setCookie(response, "accessToken");
+    setCookie(response, "refreshToken");
 
     const resJson = await parseJSON<LoginResponse>(response);
     return {

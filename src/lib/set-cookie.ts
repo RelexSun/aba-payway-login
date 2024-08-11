@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 
-export const getCookie = (response: Response, key: string) => {
+export const setCookie = (response: Response, key: string) => {
   const setCookieHeader = response.headers.get("Set-Cookie");
 
   if (!setCookieHeader) {
@@ -17,7 +17,6 @@ export const getCookie = (response: Response, key: string) => {
     cookies().set({
       name: key,
       value: token,
-      maxAge: 24 * 60 * 60,
       secure: true,
     });
   }
