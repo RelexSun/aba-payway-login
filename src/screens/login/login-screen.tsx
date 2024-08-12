@@ -13,8 +13,8 @@ export const LoginScreen: React.FC = () => {
             <Image
               src={"/banner-img.png"}
               alt="banner"
-              width={200}
-              height={200}
+              width={370}
+              height={468}
               className="object-cover max-w-full h-auto"
             />
           </div>
