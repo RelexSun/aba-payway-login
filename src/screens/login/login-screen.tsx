@@ -39,22 +39,22 @@ export const LoginScreen: React.FC = () => {
       <Image
         src={"/pw-new-logo.svg"}
         alt="logo"
-        width={200}
-        height={200}
+        width={232}
+        height={232}
         className="absolute top-[50px] left-[100px]"
       />
       <Image
         src={"/pattern-left.svg"}
-        width={200}
-        height={200}
+        width={535}
+        height={535}
         alt="pattern left"
         className="absolute bottom-0 left-0 mix-blend-overlay"
       />
       <Image
         src={"/pattern-right.svg"}
         alt="pattern right"
-        width={200}
-        height={200}
+        width={535}
+        height={535}
         className="absolute bottom-0 right-0 mix-blend-overlay"
       />
       <div className="absolute bottom-[45px] left-[100px]">
@@ -62,8 +62,8 @@ export const LoginScreen: React.FC = () => {
           <Image
             src={"/aba-logo.svg"}
             alt="small logo"
-            width={200}
-            height={200}
+            width={146}
+            height={146}
           />
           <div className="text-[11px]">
             <div>

@@ -3,5 +3,27 @@
 @tailwind utilities;
 
 .login-bg {
-  background: linear-gradient(111.38deg, #ddd, #e8e8e8);
+  background: linear-gradient(111.38deg, #e7f8ff, #e7f8ff);
+}
+
+.side-bar {
+  background: linear-gradient(180deg, #3c3a6c 0%, #0a0737 100%);
+}
+
+@layer base {
+  :root {
+    --chart-1: 230 91% 60%;
+    --chart-2: 195 100% 63%;
+    --chart-3: 222 83% 65%;
+    --chart-4: 245 100% 69%;
+    --chart-5: 254 100% 73%;
+  }
+
+  .dark {
+    --chart-1: 230 91% 60%;
+    --chart-2: 195 100% 63%;
+    --chart-3: 222 83% 65%;
+    --chart-4: 245 100% 69%;
+    --chart-5: 254 100% 73%;
+  }
 }
