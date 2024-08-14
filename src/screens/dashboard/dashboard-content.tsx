@@ -6,9 +6,9 @@ import { RadialText } from "../../components/ui/radial-text";
 
 const DashboardContent = () => {
   return (
-    <div className=" flex gap-10">
-      <div className="flex flex-col gap-10">
-        <div className="flex gap-10">
+    <div className=" flex gap-5">
+      <div className="flex flex-col gap-5">
+        <div className="flex gap-5">
           <RadialShape />
           <RadialStack />
           <RadialText />
