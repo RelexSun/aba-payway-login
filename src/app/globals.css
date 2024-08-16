@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.login-bg {
-  background: linear-gradient(111.38deg, #e7f8ff, #e7f8ff);
-}
-
 .side-bar {
   background: linear-gradient(180deg, #3c3a6c 0%, #0a0737 100%);
 }

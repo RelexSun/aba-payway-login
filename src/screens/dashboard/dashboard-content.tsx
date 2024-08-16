@@ -1,22 +1,19 @@
-import { SmChart } from "../../components/ui/sm-pie-chart";
-import { Graph } from "../../components/ui/graph";
-import { RadialShape } from "../../components/ui/radial-shape";
-import { RadialStack } from "../../components/ui/radial-stack";
-import { RadialText } from "../../components/ui/radial-text";
+import Cards from "@/components/cards";
+import TableCard from "@/components/table";
+import TransactionTable from "@/components/transaction";
 
 const DashboardContent = () => {
   return (
-    <div className=" flex gap-5">
-      <div className="flex flex-col gap-5">
-        <div className="flex gap-5">
-          <RadialShape />
-          <RadialStack />
-          <RadialText />
-        </div>
-        <Graph />
+    <main className="flex flex-col gap-3 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex my-4 justify-between w-full text-[30px] font-semibold">
+        <h1>Dashboard</h1>
       </div>
-      <SmChart />
-    </div>
+      <Cards />
+      <div className="flex flex-col justify-center gap-3 lg:flex-row lg:justify-between lg:items-start">
+        <TransactionTable />
+        <TableCard />
+      </div>
+    </main>
   );
 };
 

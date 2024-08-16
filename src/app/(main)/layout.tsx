@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./../globals.css";
 import { Toaster } from "sonner";
 import SideBar from "@/components/sidebar";
-import { Input } from "@/components/ui/input";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,13 +20,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Toaster richColors />
-
-        <div className="flex h-screen">
-          <SideBar />
-          <div className="login-bg w-full">
-            <Input className="w-full h-[50px]" />
-            {children}
+        <div className="flex">
+          <div className="hidden md:block">
+            <SideBar />
           </div>
+          <div className="w-screen relative">{children}</div>
         </div>
       </body>
     </html>
