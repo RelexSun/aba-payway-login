@@ -9,7 +9,7 @@ export const LoginScreen: React.FC = () => {
     <div className="login-bg h-screen flex items-center justify-center">
       <div className="h-[468px] w-[880px] flex items-center justify-center z-10 relative">
         <div className="flex rounded-xl shadow-lg bg-white overflow-hidden h-full">
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Image
               src={"/banner-img.png"}
               alt="banner"
@@ -48,14 +48,14 @@ export const LoginScreen: React.FC = () => {
         width={535}
         height={535}
         alt="pattern left"
-        className="absolute bottom-0 left-0 mix-blend-overlay"
+        className="absolute max-lg:top-0 left-0 lg:bottom-0 lg:left-0 mix-blend-overlay"
       />
       <Image
         src={"/pattern-right.svg"}
         alt="pattern right"
         width={535}
         height={535}
-        className="absolute bottom-0 right-0 mix-blend-overlay"
+        className="absolute bottom-0 right-0 lg:bottom-0 lg:right-0 mix-blend-overlay"
       />
       <div className="absolute bottom-[45px] left-[100px]">
         <div className="flex gap-2">

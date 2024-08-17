@@ -7,6 +7,7 @@ import {
   useActiveBurgerMenuStore,
   useActiveMenuStore,
 } from "@/zustand/sidebar-store";
+import Image from "next/image";
 
 const BurgerMenu = () => {
   const { activeIndex, setActiveIndex } = useActiveMenuStore();
@@ -44,7 +45,14 @@ const BurgerMenu = () => {
           <nav
             className={`fixed top-0 left-0 side-bar h-screen w-2/3 shadow-md z-20  transform ${animationSlide}`}
           >
-            <ul className=" mt-16">
+            <Image
+              src={"/pw-new-logo.svg"}
+              alt="logo"
+              width={232}
+              height={232}
+              className="m-5"
+            />
+            <ul className="">
               {menuItems.map((item, index) => (
                 <li
                   key={index}
