@@ -42,13 +42,13 @@ const BurgerMenu = () => {
             onClick={setToggle}
           ></div>
           <nav
-            className={`fixed top-0 left-0 h-screen w-2/3 bg-white shadow-md z-20  transform ${animationSlide}`}
+            className={`fixed top-0 left-0 side-bar h-screen w-2/3 shadow-md z-20  transform ${animationSlide}`}
           >
             <ul className=" mt-16">
               {menuItems.map((item, index) => (
                 <li
                   key={index}
-                  className={`py-4 px-3 flex items-center gap-3 transition-colors cursor-pointer ${
+                  className={`py-4 px-3 flex items-center gap-3 text-slate-400 transition-colors cursor-pointer ${
                     activeIndex === index
                       ? "bg-indigo-950 text-white border-l-4 border-cyan-500"
                       : "hover:bg-indigo-950 hover:text-white"
