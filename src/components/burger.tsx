@@ -8,14 +8,20 @@ import {
   useActiveMenuStore,
 } from "@/zustand/sidebar-store";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+import { MenuItem } from "@/types/interfaces";
 
 const BurgerMenu = () => {
-  const { activeIndex, setActiveIndex } = useActiveMenuStore();
   const { toggle, setToggle } = useActiveBurgerMenuStore();
   const [isMounted, setIsMounted] = useState(toggle);
   const [animationSlide, setAnimationSlide] =
     useState<string>("animate-slide-in");
   const [overlay, setOverlay] = useState<string>("opacity-100");
+  const router = useRouter();
+  const path = usePathname();
+  const handleClick = (item: MenuItem) => {
+    router.push(item.pathName);
+  };
 
   useEffect(() => {
     if (toggle) {
@@ -32,7 +38,7 @@ const BurgerMenu = () => {
   return (
     <div className="">
       {!toggle && (
-        <button className="p-2 m-2" onClick={setToggle}>
+        <button onClick={setToggle}>
           <Menu className="h-6 w-6" />
         </button>
       )}
@@ -53,19 +59,19 @@ const BurgerMenu = () => {
               className="m-5"
             />
             <ul className="">
-              {menuItems.map((item, index) => (
+              {menuItems.map((item) => (
                 <li
-                  key={index}
+                  key={item.label}
                   className={`py-4 px-3 flex items-center gap-3 text-slate-400 transition-colors cursor-pointer ${
-                    activeIndex === index
+                    item.pathName === path
                       ? "bg-indigo-950 text-white border-l-4 border-cyan-500"
                       : "hover:bg-indigo-950 hover:text-white"
                   }`}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => handleClick(item)}
                 >
                   <span
                     className={`pl-6 ${
-                      activeIndex === index ? "text-cyan-500" : ""
+                      item.pathName === path ? "text-cyan-500" : ""
                     }`}
                   >
                     {item.icon}

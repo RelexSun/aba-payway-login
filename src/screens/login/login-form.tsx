@@ -30,6 +30,7 @@ const LoginForm: React.FC = () => {
   const onSubmit: SubmitHandler<LoginInput> = (input) => {
     startTransition(async () => {
       const { error, data } = await login(input);
+
       if (!data) {
         toast.error(error?.message, {
           position: "top-right",
@@ -44,6 +45,7 @@ const LoginForm: React.FC = () => {
             fontSize: "11pt",
           },
         });
+
         router.push(ROUTES.HOME);
       }
     });

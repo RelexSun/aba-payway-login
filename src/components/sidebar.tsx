@@ -3,9 +3,15 @@
 import Image from "next/image";
 import { useActiveMenuStore } from "@/zustand/sidebar-store";
 import { menuItems } from "../types/constants/menuItems";
+import { usePathname, useRouter } from "next/navigation";
+import { MenuItem } from "@/types/interfaces";
 
 const SideBar = () => {
-  const { activeIndex, setActiveIndex } = useActiveMenuStore();
+  const path = usePathname();
+  const router = useRouter();
+  const handleClick = (item: MenuItem) => {
+    router.push(item.pathName);
+  };
 
   return (
     <>
@@ -19,19 +25,19 @@ const SideBar = () => {
         />
         <nav className="w-[250px] mt-3">
           <ul>
-            {menuItems.map((item, index) => (
+            {menuItems.map((item) => (
               <li
-                key={index}
+                key={item.label}
                 className={`py-4 px-3 flex items-center gap-3 transition-colors cursor-pointer ${
-                  activeIndex === index
+                  item.pathName === path
                     ? "bg-indigo-950 text-white border-l-4  border-cyan-500"
                     : "hover:bg-indigo-950 hover:text-white"
                 }`}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => handleClick(item)}
               >
                 <span
                   className={`pl-6 ${
-                    activeIndex === index ? "text-cyan-500" : ""
+                    item.pathName === path ? "text-cyan-500" : ""
                   }`}
                 >
                   {item.icon}

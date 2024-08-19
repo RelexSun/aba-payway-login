@@ -1,7 +1,7 @@
 export interface MenuItem {
   label: string;
   icon: JSX.Element;
-  content: JSX.Element;
+  pathName: string;
 }
 
 export interface CardTypes {

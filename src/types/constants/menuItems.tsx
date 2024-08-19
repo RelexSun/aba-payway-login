@@ -9,26 +9,18 @@ import {
   FaUsers,
   FaCode,
 } from "react-icons/fa";
-import DashboardContent from "@/screens/dashboard/dashboard-content";
-import Transactions from "@/screens/dashboard/transaction-content";
-import Invoice from "@/screens/dashboard/invoice-content";
-import Customers from "@/screens/dashboard/customer-content";
-import Discount from "@/screens/dashboard/discount-programs";
-import Reports from "@/screens/dashboard/report-content";
-import Settings from "@/screens/dashboard/setting";
-import Developers from "@/screens/dashboard/developer";
 
 export const menuItems: MenuItem[] = [
-  { label: "Dashboard", icon: <FaHome />, content: <DashboardContent /> },
+  { label: "Dashboard", icon: <FaHome />, pathName: "/dashboard" },
   {
     label: "Transactions",
     icon: <FaMoneyBillWave />,
-    content: <Transactions />,
+    pathName: "/transaction",
   },
-  { label: "Invoices", icon: <FaFileInvoice />, content: <Invoice /> },
-  { label: "Customers", icon: <FaUsers />, content: <Customers /> },
-  { label: "Discount Programs", icon: <FaTags />, content: <Discount /> },
-  { label: "Reports", icon: <FaChartBar />, content: <Reports /> },
-  { label: "Settings", icon: <FaCog />, content: <Settings /> },
-  { label: "Developers", icon: <FaCode />, content: <Developers /> },
+  { label: "Invoices", icon: <FaFileInvoice />, pathName: "/invoice" },
+  { label: "Customers", icon: <FaUsers />, pathName: "/customer" },
+  { label: "Discount Programs", icon: <FaTags />, pathName: "/discount" },
+  { label: "Reports", icon: <FaChartBar />, pathName: "/report" },
+  { label: "Settings", icon: <FaCog />, pathName: "/setting" },
+  { label: "Developers", icon: <FaCode />, pathName: "/developer" },
 ];
