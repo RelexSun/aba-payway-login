@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 
 export const menuItems: MenuItem[] = [
-  { label: "Dashboard", icon: <FaHome />, pathName: "/dashboard" },
+  { label: "Dashboard", icon: <FaHome />, pathName: "/" },
   {
     label: "Transactions",
     icon: <FaMoneyBillWave />,

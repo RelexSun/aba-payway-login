@@ -12,15 +12,12 @@ const NavBar = () => {
         <BurgerMenu />
       </div>
 
-      <div className="flex border md:absolute md:right-7 items-center justify-center">
-        <button>
-          <Avatar className=" h-9 w-9 sm:flex md:absolute md:right-7">
-            <AvatarImage src="/avatars/01.png" alt="Avatar" />
-            <AvatarFallback>SN</AvatarFallback>
-          </Avatar>
-        </button>
-        <span className="text-black ">{user?.username}</span>
-      </div>
+      <button className="sm:flex md:absolute md:right-7">
+        <Avatar className=" h-10 w-10 ">
+          <AvatarImage src="/avatars/01.png" alt="Avatar" />
+          <AvatarFallback>{user?.username[0]}</AvatarFallback>
+        </Avatar>
+      </button>
     </div>
   );
 };
