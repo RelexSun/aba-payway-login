@@ -1,7 +1,7 @@
 import Settings from "@/screens/setting";
 
 const page = () => {
-  return <Settings />;
+  return;
 };
 
 export default page;

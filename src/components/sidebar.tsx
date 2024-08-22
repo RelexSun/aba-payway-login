@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useActiveMenuStore } from "@/zustand/sidebar-store";
 import { menuItems } from "../types/constants/menuItems";
 import { usePathname, useRouter } from "next/navigation";
 import { MenuItem } from "@/types/interfaces";

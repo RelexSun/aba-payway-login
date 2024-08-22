@@ -24,3 +24,8 @@ export const menuItems: MenuItem[] = [
   { label: "Settings", icon: <FaCog />, pathName: "/setting" },
   { label: "Developers", icon: <FaCode />, pathName: "/developer" },
 ];
+
+export const navItem: MenuItem[] = [
+  { label: "Settings", icon: <FaCog />, pathName: "/setting" },
+  { label: "My Account", icon: <FaUsers />, pathName: "/account" },
+];
