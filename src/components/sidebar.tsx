@@ -2,15 +2,11 @@
 
 import Image from "next/image";
 import { menuItems } from "../types/constants/menuItems";
-import { usePathname, useRouter } from "next/navigation";
-import { MenuItem } from "@/types/interfaces";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const SideBar = () => {
   const path = usePathname();
-  const router = useRouter();
-  const handleClick = (item: MenuItem) => {
-    router.push(item.pathName);
-  };
 
   return (
     <>
@@ -25,24 +21,28 @@ const SideBar = () => {
         <nav className="w-[250px] mt-3">
           <ul>
             {menuItems.map((item) => (
-              <li
+              <Link
+                href={item.pathName}
                 key={item.label}
                 className={`py-4 px-3 flex items-center gap-3 transition-colors cursor-pointer ${
-                  item.pathName === path
+                  item.pathName === path ||
+                  (path.startsWith(item.pathName) && item.pathName !== "/")
                     ? "bg-indigo-950 text-white border-l-4  border-cyan-500"
                     : "hover:bg-indigo-950 hover:text-white"
                 }`}
-                onClick={() => handleClick(item)}
               >
                 <span
                   className={`pl-6 ${
-                    item.pathName === path ? "text-cyan-500" : ""
+                    item.pathName === path ||
+                    (path.startsWith(item.pathName) && item.pathName !== "/")
+                      ? "text-cyan-500"
+                      : ""
                   }`}
                 >
                   {item.icon}
                 </span>
                 <span>{item.label}</span>
-              </li>
+              </Link>
             ))}
           </ul>
         </nav>

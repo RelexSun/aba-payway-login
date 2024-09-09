@@ -23,3 +23,21 @@
     --chart-5: 254 100% 73%;
   }
 }
+
+.header-title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

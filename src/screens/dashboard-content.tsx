@@ -4,8 +4,8 @@ import TransactionTable from "@/components/transaction";
 
 const DashboardContent = () => {
   return (
-    <main className="flex flex-col gap-3 mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex my-4 justify-between w-full text-[30px] font-semibold">
+    <>
+      <div className="header-title">
         <h1>Dashboard</h1>
       </div>
       <Cards />
@@ -13,7 +13,7 @@ const DashboardContent = () => {
         <TransactionTable />
         <TableCard />
       </div>
-    </main>
+    </>
   );
 };
 

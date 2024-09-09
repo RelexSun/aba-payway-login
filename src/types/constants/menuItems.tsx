@@ -21,11 +21,11 @@ export const menuItems: MenuItem[] = [
   { label: "Customers", icon: <FaUsers />, pathName: "/customer" },
   { label: "Discount Programs", icon: <FaTags />, pathName: "/discount" },
   { label: "Reports", icon: <FaChartBar />, pathName: "/report" },
-  { label: "Settings", icon: <FaCog />, pathName: "/setting" },
+  { label: "Settings", icon: <FaCog />, pathName: "/settings" },
   { label: "Developers", icon: <FaCode />, pathName: "/developer" },
 ];
 
 export const navItem: MenuItem[] = [
-  { label: "Settings", icon: <FaCog />, pathName: "/setting" },
+  { label: "Settings", icon: <FaCog />, pathName: "/settings" },
   { label: "My Account", icon: <FaUsers />, pathName: "/account" },
 ];

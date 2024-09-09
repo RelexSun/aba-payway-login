@@ -11,13 +11,12 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { navItem } from "@/types/constants/menuItems";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { MenuItem } from "@/types/interfaces";
 import LogoutModel from "./logout-model";
 import { useState } from "react";
 
 const UserNav = () => {
-  // const path = usePathname();
   const router = useRouter();
   const handleClick = (item: MenuItem) => {
     router.push(item.pathName);

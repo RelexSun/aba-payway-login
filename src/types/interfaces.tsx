@@ -20,3 +20,9 @@ export interface ActiveBurgerMenuState {
   toggle: boolean;
   setToggle: () => void;
 }
+
+export interface ContentSectionProps {
+  title: string;
+  desc: string;
+  children: JSX.Element;
+}
