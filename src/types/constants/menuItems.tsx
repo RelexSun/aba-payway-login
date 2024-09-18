@@ -13,9 +13,9 @@ import {
 export const menuItems: MenuItem[] = [
   { label: "Dashboard", icon: <FaHome />, pathName: "/" },
   {
-    label: "Transactions",
+    label: "Shop",
     icon: <FaMoneyBillWave />,
-    pathName: "/transaction",
+    pathName: "/shop",
   },
   { label: "Invoices", icon: <FaFileInvoice />, pathName: "/invoice" },
   { label: "Customers", icon: <FaUsers />, pathName: "/customer" },

@@ -30,8 +30,10 @@ export default async function RootLayout({
               <SideBar />
             </div>
             <div className="w-screen relative">
-              <NavBar />
-              <div className="pt-20 max-w-[1500px] my-0 mx-auto md:pl-64 mb-5">
+              <div className="fixed w-full">
+                <NavBar />
+              </div>
+              <div className="pt-16 max-w-[1500px] my-0 mx-auto md:pl-64 mb-5">
                 {children}
               </div>
             </div>

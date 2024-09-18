@@ -1,5 +1,6 @@
 import React from "react";
 import ContentSection from "../components/content-section";
+import Account from "../components/account";
 
 const page = () => {
   return (
@@ -7,7 +8,7 @@ const page = () => {
       title="Account"
       desc="Update your account settings. Set your preferred language and timezone."
     >
-      <div>hi</div>
+      <Account />
     </ContentSection>
   );
 };
