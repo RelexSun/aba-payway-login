@@ -6,7 +6,7 @@ import { parseJSON } from "@/lib/format-response-data";
 import { setCookie } from "@/lib/set-cookie";
 import { ErrorResponse } from "@/common/schema";
 
-const LOGIN = API.URL_ENDPOINT + "/auth/login";
+const LOGIN = API.URL_AUTH_ENDPOINT + "/login";
 
 export const login = async (
   input: LoginInput

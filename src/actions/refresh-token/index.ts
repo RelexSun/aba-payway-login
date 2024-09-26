@@ -8,7 +8,7 @@ import {
 import { ErrorResponse } from "@/common/schema";
 import { parseJSON } from "@/lib";
 
-const REFRESH_TOKEN = API.URL_ENDPOINT + "/auth/refresh";
+const REFRESH_TOKEN = API.URL_AUTH_ENDPOINT + "/refresh";
 
 export const refreshNewTokens = async (
   input: RefreshTokenInput

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./../globals.css";
-import { Toaster } from "sonner";
+import { toast, Toaster } from "sonner";
 import SideBar from "@/components/sidebar";
 import NavBar from "@/components/nav";
 import AppInitializer from "./AppInitializer";
 import { getMe } from "@/actions/get-me";
+import { getShop } from "@/actions/shop/get";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +21,16 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const { data } = await getMe();
+  let shops = null;
+  if (data?.id) {
+    const { shop } = await getShop(data.id);
+    shops = shop;
+  }
   return (
     <html lang="en">
       <body className={inter.className}>
         <Toaster richColors />
-        <AppInitializer user={data}>
+        <AppInitializer user={data} shop={shops}>
           <div className="flex">
             <div className="hidden md:block">
               <SideBar />

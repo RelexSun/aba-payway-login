@@ -6,7 +6,7 @@ import { API } from "@/common/constants/api";
 import axios from "axios";
 import { cookies } from "next/headers";
 
-const UPDATE = API.URL_ENDPOINT + "/auth/update";
+const UPDATE = API.URL_AUTH_ENDPOINT + "/update";
 
 export const updateMe = async (
   data: UpdateInput

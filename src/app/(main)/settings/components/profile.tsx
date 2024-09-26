@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { updateMe } from "@/actions/update-me";
-import { startTransition, useState } from "react";
+import { startTransition } from "react";
 import { toast } from "sonner";
 
 const Profile = () => {

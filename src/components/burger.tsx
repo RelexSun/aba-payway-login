@@ -3,10 +3,7 @@
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { menuItems } from "../types/constants/menuItems";
-import {
-  useActiveBurgerMenuStore,
-  useActiveMenuStore,
-} from "@/zustand/sidebar-store";
+import { useActiveBurgerMenuStore } from "@/zustand/sidebar-store";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { MenuItem } from "@/types/interfaces";

@@ -6,7 +6,7 @@ import { API } from "@/common/constants/api";
 import { parseJSON } from "@/lib/format-response-data";
 import { cookies } from "next/headers";
 
-const USER = API.URL_ENDPOINT + "/auth/user";
+const USER = API.URL_AUTH_ENDPOINT + "/user";
 
 export const getMe = async (): Promise<{
   error: ErrorResponse | null;
