@@ -12,6 +12,7 @@ import { startTransition } from "react";
 import { useActiveUser } from "@/zustand/user-store";
 import { deleteShop } from "@/actions/shop/delete";
 import { toast } from "sonner";
+import Link from "next/link";
 
 export const CardShop = () => {
   const { shop } = useActiveShop();
@@ -47,37 +48,42 @@ export const CardShop = () => {
 
   return (
     <>
-      <div className="grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-2 px-4">
-        {shop?.map((item) => (
-          <>
-            <Card key={item.id}>
-              <AspectRatio ratio={3 / 2}>
-                {/* <Image
-                  src={item.img_url}
-                  alt="Image"
-                  className="rounded-md object-cover"
-                  fill={true}
-                /> */}
-              </AspectRatio>
-              <CardContent>
-                <div className="flex justify-between items-center">
-                  {item.name}
-                  <Button
-                    size="sm"
-                    variant="destructive"
-                    onClick={() => {
-                      setShop_id(item.id);
-                      setIsOpen(true);
-                    }}
-                  >
-                    <IconTrash />
-                  </Button>
-                </div>
-              </CardContent>
-              <CardFooter>{item.location}</CardFooter>
-            </Card>
-          </>
-        ))}
+      <div className="grid sm:grid-cols-2 grid-cols-1  lg:grid-cols-3 gap-2 px-4">
+        {shop?.length !== 0 ? (
+          shop?.map((item) => (
+            <>
+              <Card key={item.id} className="relative">
+                <Link href={`shop/${item.id}`}>
+                  <AspectRatio ratio={3 / 2}>
+                    <Image
+                      src=""
+                      alt="Image"
+                      className="rounded-md object-cover"
+                      fill={true}
+                    />
+                  </AspectRatio>
+                  <CardContent>
+                    <div className="">{item.name}</div>
+                  </CardContent>
+                  <CardFooter>{item.location}</CardFooter>
+                </Link>
+                <Button
+                  size="sm"
+                  variant="destructive"
+                  onClick={() => {
+                    setShop_id(item.id);
+                    setIsOpen(true);
+                  }}
+                  className="absolute bottom-10 right-10"
+                >
+                  <IconTrash />
+                </Button>
+              </Card>
+            </>
+          ))
+        ) : (
+          <p>Create Shop by clicking Add Shop button.</p>
+        )}
       </div>
       <DeleteModel
         isOpen={isOpen}
