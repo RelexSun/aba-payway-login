@@ -11,6 +11,7 @@ export const postShop = async (
   input: PostShopInput
 ): Promise<{ error: ErrorResponse | null; data: PostResponse | null }> => {
   try {
+    console.log(input);
     const res = await axios.post<PostResponse>(POST, input);
 
     return {

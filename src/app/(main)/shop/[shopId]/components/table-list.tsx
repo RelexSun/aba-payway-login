@@ -36,6 +36,7 @@ export default function TableList({
   const [tableId, setTableId] = useState<string | null>();
   const [tableEditId, setTableEditId] = useState<string | null>();
   const [tableStatus, setTableStatus] = useState<TABLE_STATUS>();
+  const [t, setT] = useState<TableResponse | null>();
   const router = useRouter();
 
   const handleDelete = (table_id: string) => {
@@ -114,6 +115,7 @@ export default function TableList({
                           setTableEditId(table.id);
                           setIsOpenUpdate(true);
                           setTableStatus(table.status);
+                          setT(table);
                         }}
                       >
                         Edit
@@ -154,15 +156,21 @@ export default function TableList({
         onCloseDelete={() => setIsOpenDelete(false)}
         handleDelete={() => handleDelete(tableId as string)}
       />
-      <UpdateModel
-        isOpenUpdate={isOpenUpdate}
-        onCloseUpdate={() => setIsOpenUpdate(false)}
-        shop_id={shop_id}
-        table_id={tableEditId as string}
-        tableStatus={
-          tableStatus as TABLE_STATUS.AVAILABLE | TABLE_STATUS.OCCUPIED
-        }
-      />
+      {t && (
+        <UpdateModel
+          isOpenUpdate={isOpenUpdate}
+          onCloseUpdate={() => {
+            setIsOpenUpdate(false);
+            setT(null);
+          }}
+          shop_id={shop_id}
+          table_id={tableEditId as string}
+          tableStatus={
+            tableStatus as TABLE_STATUS.AVAILABLE | TABLE_STATUS.OCCUPIED
+          }
+          table={t as TableResponse}
+        />
+      )}
     </>
   );
 }

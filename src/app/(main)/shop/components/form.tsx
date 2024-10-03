@@ -61,7 +61,6 @@ export default function ShopForm() {
           return;
         }
         fileUrl = upload.secure_url;
-        console.log("File upload success, URL:", fileUrl);
       }
       const req = { ...input, user_id: user.id, img_url: fileUrl };
       const { error, data } = await postShop(req);
@@ -95,78 +94,89 @@ export default function ShopForm() {
 
   return (
     <>
-      <div>
+      <div className="">
         <h3 className="text-[26px] font-bold mt-3">Create Shop</h3>
-        <FileUploader
-          value={file ? [file] : []}
-          onValueChange={(files) => (files ? setFile(files[0]) : setFile(null))}
-          dropzoneOptions={dropzone}
-        >
-          <FileInput>
-            <div className="flex items-center justify-center h-32 w-full border bg-background rounded-md">
-              <p className="text-gray-400">Drop a file here</p>
-            </div>
-          </FileInput>
-          <FileUploaderContent className="flex items-center flex-row gap-2">
-            {file && (
-              <FileUploaderItem
-                index={1}
-                className="size-20 p-0 rounded-md overflow-hidden"
-                aria-roledescription={`file containing ${file.name}`}
+        <div className="flex flex-col md:flex-row gap-10 items-center mt-5">
+          <div className="w-full md:w-1/2">
+            <FileUploader
+              value={file ? [file] : []}
+              onValueChange={(files) =>
+                files ? setFile(files[0]) : setFile(null)
+              }
+              dropzoneOptions={dropzone}
+            >
+              <FileInput>
+                <div className="flex items-center justify-center h-32 w-full border bg-background rounded-md">
+                  <p className="text-gray-400">Drop a file here</p>
+                </div>
+              </FileInput>
+              <FileUploaderContent className="flex items-center flex-row gap-2">
+                {file && (
+                  <FileUploaderItem
+                    index={1}
+                    className="size-20 p-0 rounded-md overflow-hidden"
+                    aria-roledescription={`file containing ${file.name}`}
+                  >
+                    <Image
+                      src={URL.createObjectURL(file)}
+                      alt={file.name}
+                      height={80}
+                      width={80}
+                      className="size-20 p-0"
+                    />
+                  </FileUploaderItem>
+                )}
+              </FileUploaderContent>
+            </FileUploader>
+          </div>
+          <div className="w-full md:w-1/2">
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-3"
               >
-                <Image
-                  src={URL.createObjectURL(file)}
-                  alt={file.name}
-                  height={80}
-                  width={80}
-                  className="size-20 p-0"
-                />
-              </FileUploaderItem>
-            )}
-          </FileUploaderContent>
-        </FileUploader>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
-            <div>
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-slate-400 text-[12px]">
-                      Shop Name
-                    </FormLabel>
-                    <FormControl>
-                      <Input placeholder="" type="text" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <div>
-              <FormField
-                control={form.control}
-                name="location"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-slate-400 text-[12px]">
-                      Location
-                    </FormLabel>
-                    <FormControl>
-                      <Input placeholder="" type="text" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <Button type="submit" disabled={pending}>
-              {pending && <Loader2 className="size-4 animate-spin mx-2" />}
-              Create Shop
-            </Button>
-          </form>
-        </Form>
+                <div>
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-slate-400 text-[12px]">
+                          Shop Name
+                        </FormLabel>
+                        <FormControl>
+                          <Input placeholder="" type="text" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div>
+                  <FormField
+                    control={form.control}
+                    name="location"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-slate-400 text-[12px]">
+                          Location
+                        </FormLabel>
+                        <FormControl>
+                          <Input placeholder="" type="text" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <Button type="submit" disabled={pending}>
+                  {pending && <Loader2 className="size-4 animate-spin mx-2" />}
+                  Create Shop
+                </Button>
+              </form>
+            </Form>
+          </div>
+        </div>
       </div>
     </>
   );

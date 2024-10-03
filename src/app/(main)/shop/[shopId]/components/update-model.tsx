@@ -1,4 +1,8 @@
-import { TableEditInput, tableInputUpdateSchema } from "@/actions/table/schema";
+import {
+  TableEditInput,
+  tableInputUpdateSchema,
+  TableResponse,
+} from "@/actions/table/schema";
 import UpdateTable from "@/actions/table/update";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
@@ -38,6 +42,7 @@ type isOpenProp = {
   shop_id: string;
   table_id: string;
   tableStatus: TABLE_STATUS.AVAILABLE | TABLE_STATUS.OCCUPIED;
+  table: TableResponse;
 };
 
 export const UpdateModel = ({
@@ -46,9 +51,15 @@ export const UpdateModel = ({
   shop_id,
   table_id,
   tableStatus,
+  table,
 }: isOpenProp) => {
   const form = useForm<TableEditInput>({
     resolver: zodResolver(tableInputUpdateSchema),
+    defaultValues: {
+      number: table.number,
+      seatAmount: table.seatAmount,
+      status: table.status,
+    },
   });
   const handleUpdate: SubmitHandler<TableEditInput> = (input) => {
     startTransition(async () => {

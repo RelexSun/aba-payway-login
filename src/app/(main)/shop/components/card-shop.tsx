@@ -56,7 +56,7 @@ export const CardShop = () => {
                 <Link href={`shop/${item.id}`}>
                   <AspectRatio ratio={3 / 2}>
                     <Image
-                      src=""
+                      src={item.img_url ?? "/somon.JPG"}
                       alt="Image"
                       className="rounded-md object-cover"
                       fill={true}
