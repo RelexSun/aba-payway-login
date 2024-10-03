@@ -3,8 +3,13 @@ import { ROUTES } from "./common/constants/routes";
 import { ACCESS_TOKEN_SECRET_KEY, decrypt } from "./common/jwt";
 import { checkExpiredToken } from "./lib";
 import { refreshNewTokens } from "./actions/refresh-token";
+import { menuItems } from "./types/constants/menuItems";
+import { sidebarNavItems } from "./app/(main)/settings/layout";
 
-const protectedRoutes = ["/"];
+const menuRoutes = menuItems.map((path) => path.pathName);
+const sidebarNavRoutes = sidebarNavItems.map((path) => path.href);
+
+const protectedRoutes = [...menuRoutes, ...sidebarNavRoutes];
 const publicRoutes = ["/login", "/register"];
 
 export default async function middleware(request: NextRequest) {
