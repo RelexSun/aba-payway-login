@@ -4,7 +4,7 @@ import { ACCESS_TOKEN_SECRET_KEY, decrypt } from "./common/jwt";
 import { checkExpiredToken } from "./lib";
 import { refreshNewTokens } from "./actions/refresh-token";
 import { menuItems } from "./types/constants/menuItems";
-import { sidebarNavItems } from "./app/(main)/settings/layout";
+import { sidebarNavItems } from "./types/constants/menuItems";
 
 const menuRoutes = menuItems.map((path) => path.pathName);
 const sidebarNavRoutes = sidebarNavItems.map((path) => path.href);

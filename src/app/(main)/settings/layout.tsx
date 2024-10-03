@@ -9,7 +9,7 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 
-export const sidebarNavItems = [
+const sidebarNavItems = [
   {
     title: "Profile",
     icon: <IconUser size={18} />,
