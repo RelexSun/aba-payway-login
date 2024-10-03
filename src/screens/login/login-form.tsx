@@ -19,6 +19,7 @@ import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@/common/constants/routes";
+import Link from "next/link";
 
 const LoginForm: React.FC = () => {
   const form = useForm<LoginInput>({
@@ -97,6 +98,12 @@ const LoginForm: React.FC = () => {
               {pending && <Loader2 className="size-4 animate-spin mx-2" />} Sign
               In
             </Button>
+            <Link
+              className="text-[12px] mt-3 font-semibold text-cyan-500"
+              href={ROUTES.REGISTER}
+            >
+              Create an account
+            </Link>
             <span className="text-[12px] mt-3 font-semibold text-cyan-500">
               Forgot password?
             </span>

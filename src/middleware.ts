@@ -3,8 +3,7 @@ import { ROUTES } from "./common/constants/routes";
 import { ACCESS_TOKEN_SECRET_KEY, decrypt } from "./common/jwt";
 import { checkExpiredToken } from "./lib";
 import { refreshNewTokens } from "./actions/refresh-token";
-import { menuItems } from "./types/constants/menuItems";
-import { sidebarNavItems } from "./types/constants/menuItems";
+import { menuItems, sidebarNavItems } from "./types/constants/menuItems";
 
 const menuRoutes = menuItems.map((path) => path.pathName);
 const sidebarNavRoutes = sidebarNavItems.map((path) => path.href);
@@ -14,7 +13,8 @@ const publicRoutes = ["/login", "/register"];
 
 export default async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
-  const isProtectedRoute = protectedRoutes.includes(path);
+  const isProtectedRoute =
+    protectedRoutes.includes(path) || path.startsWith("/shop");
   const isPublicRoute = publicRoutes.includes(path);
 
   const accessToken = request.cookies.get("accessToken")?.value;

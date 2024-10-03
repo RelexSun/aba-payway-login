@@ -33,7 +33,7 @@ import {
 } from "@/components/ui/popover";
 import { GENDER } from "@/common/enum/gender-enum";
 import { updateMe } from "@/actions/update-me";
-import { startTransition, useState } from "react";
+import { startTransition } from "react";
 import { toast } from "sonner";
 
 const Account = () => {
@@ -75,7 +75,7 @@ const Account = () => {
                 <FormItem>
                   <FormLabel className="text-[14px]">Last Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Username" type="username" {...field} />
+                    <Input placeholder="Last Name" type="username" {...field} />
                   </FormControl>
                   <FormDescription>
                     You can change your last name.
@@ -93,7 +93,11 @@ const Account = () => {
                 <FormItem>
                   <FormLabel className="text-[14px]">First Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Username" type="username" {...field} />
+                    <Input
+                      placeholder="First Name"
+                      type="username"
+                      {...field}
+                    />
                   </FormControl>
                   <FormDescription>
                     You can change your first name.
