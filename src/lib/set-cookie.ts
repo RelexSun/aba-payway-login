@@ -17,7 +17,7 @@ export const setCookie = (response: Response, key: string) => {
     cookies().set({
       name: key,
       value: token,
-      secure: true,
+      secure: process.env.NEXT_PUBLIC_NODE_ENV === "production",
     });
   }
 
