@@ -91,7 +91,7 @@ export default function TableList({
             </TableHeader>
             {tables?.map((table) => (
               <>
-                <TableBody>
+                <TableBody key={table.id}>
                   <TableRow>
                     <TableCell className="font-medium">
                       {table.number}
