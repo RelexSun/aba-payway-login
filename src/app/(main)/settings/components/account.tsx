@@ -35,10 +35,20 @@ import { GENDER } from "@/common/enum/gender-enum";
 import { updateMe } from "@/actions/update-me";
 import { startTransition } from "react";
 import { toast } from "sonner";
+import { useActiveUser } from "@/zustand/user-store";
+import { revalidatePath } from "next/cache";
 
 const Account = () => {
+  const { user } = useActiveUser();
   const form = useForm<UpdateInput>({
     resolver: zodResolver(UpdateSchema),
+    defaultValues: {
+      lastname: user?.lastname,
+      firstname: user?.firstname,
+      dob: user?.dob,
+      age: user?.age,
+      gender: user?.gender,
+    },
   });
 
   const onSubmit: SubmitHandler<UpdateInput> = (input) => {

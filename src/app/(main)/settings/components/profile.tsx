@@ -19,10 +19,17 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { updateMe } from "@/actions/update-me";
 import { startTransition } from "react";
 import { toast } from "sonner";
+import { useActiveUser } from "@/zustand/user-store";
+import { revalidatePath } from "next/cache";
 
 const Profile = () => {
+  const { user } = useActiveUser();
   const form = useForm<UpdateInput>({
     resolver: zodResolver(UpdateSchema),
+    defaultValues: {
+      username: user?.username,
+      phone_number: user?.phone_number,
+    },
   });
 
   const onSubmit: SubmitHandler<UpdateInput> = (input) => {
